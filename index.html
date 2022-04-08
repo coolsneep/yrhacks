@@ -4,6 +4,27 @@
     <script src="p5.sound.min.js"></script>
 <script src="./p5.play.js"></script>
 
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+  apiKey: "AIzaSyA-DwTiSivebRP1Y1CvAb7qP_XF1hAtuiA",
+  authDomain: "geoyrhacks.firebaseapp.com",
+  databaseURL: "https://geoyrhacks-default-rtdb.firebaseio.com",
+  projectId: "geoyrhacks",
+  storageBucket: "geoyrhacks.appspot.com",
+  messagingSenderId: "820667412010",
+  appId: "1:820667412010:web:be588c88a0193d4f83dd53"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+</script>
 
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
@@ -11,6 +32,6 @@
   </head>
   <body>
       <script src="sketch.js"></script>
-   
+     
 
 </body></html>
