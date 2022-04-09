@@ -4,8 +4,10 @@ var Countries = ["America","Canada"]
 var guesses = 0
 var score = 0
 var gameState = 0
-
-
+var value
+var randomCountries
+var temp
+var guessed = 0
 function setup(){
 
 database = firebase.database();
@@ -33,19 +35,36 @@ if (gameState === 0.5){
 }
 //play
 if(gameState === 1){
+    if(guessed<11){
+    randomCountry()
+    gameState = 1.5
     
-    var randomCountries= Countries[Math.floor(Math.random()*Countries.length)];
-    var playerTimeRef = database.ref(randomCountries+'/fact1')
-    playerTimeRef.on('value', (data) => {
-        time1 = data.val();
-    console.log(time1)
-})
+    temp = createInput("")
+    temp.position(100,100)
+    temp2 = createButton("submit")
+    temp2.position(300,100)
+    temp2.mousePressed(check)
+      }
+    }
+
+if(gameState === 1.5){
+    if(guesses<=3){
+    
+    
+    text(guesses,500,500)
+    console.log("waiting")
+    
+}
+else{
+    gameState = 1
+    
 }
 //end
+}
 if(gameState === 2){
 }
-
 }
+
 
 function submitName(){
     if(/^[A-Za-z]*$/.test(names)){
@@ -64,4 +83,36 @@ function load(){
   }
 function again(){
     window.location.reload();
+}
+
+function randomCountry(){
+    randomCountries= Countries[Math.floor(Math.random()*Countries.length)];
+    var playerTimeRef = database.ref(randomCountries+'/fact1')
+
+    playerTimeRef.on('value', (data) => {
+        value = data.val();
+        text(value,400,400)
+    
+    
+})
+}
+
+function check(){
+    console.log(temp.value())
+    if(temp.value() === randomCountries){
+        console.log("wow")
+        guesses = 0
+        clear()
+        gameState = 1
+        guessed +=1
+        console.log(guessed)
+    }
+    else{
+        guesses +=1
+        
+    }
+    if(guesses === 3){
+        guessed +=1
+        guesses = 0
+    }
 }
