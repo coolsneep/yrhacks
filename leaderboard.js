@@ -1,7 +1,7 @@
 class leaderboards{
     constructor(){
  this.name = names
- this.times =seconds
+ this.times =seconds2
        
        
  
@@ -56,56 +56,58 @@ class leaderboards{
  
  compare(){
  //first place
-         if(time1.time<=this.times){
+ textFont(fontBold,40);
+fill("white")
+         if(time1.time>=this.times){
          
-           console.log(
-           "First Place       Name: " + time1.name + "   Time: " + time1.time + " seconds"
+           text(
+           "First Place       Name: " + time1.name + "   Time: " + time1.time + " score",100,600
            )
          }
          else{
          
            checker = 1
-           console.log("First Place       Name: " + this.name + "   Time: " + this.times + " seconds")
-           console.log("Second Place       Name: " + time1.name + "   Time: " + time1.time + " seconds")
-           console.log("Third Place       Name: " + time2.name + "   Time: " + time2.time + " seconds")
+           text("First Place       Name: " + this.name + "   Time: " + this.times + " score",100,600)
+           text("Second Place       Name: " + time1.name + "   Time: " + time1.time + " score",100,700)
+           text("Third Place       Name: " + time2.name + "   Time: " + time2.time + " score",100,800)
            this.addplayerfirst()
-           console.log("congrats you got a new highscore")
+           text("Congrats you got a new highscore",200,900)
            return
          }
  //second place
-         if(time2.time<=this.times){
+         if(time2.time>=this.times){
                  
-             console.log(
-             "Second Place       Name: " + time2.name + "   Time: " + time2.time + " seconds"
+             text(
+             "Second Place       Name: " + time2.name + "   Time: " + time2.time + " score",100,700
              )
          }
          else{
          
              checker=2
              
-            console.log( "Second Place       Name: " + this.name + "   Time: " + this.times + " seconds")
-            console.log( "Third Place       Name: " + time2.name + "   Time: " + time2.time + " seconds")
+            text( "Second Place       Name: " + this.name + "   Time: " + this.times + " score",100,700)
+            text( "Third Place       Name: " + time2.name + "   Time: " + time2.time + " score",100,800)
             this.addplayersecond()
-            console.log("congrats ur second on the global leaderboard")
+            text("Congrats you're second on the global leaderboard",200,900)
             return
             
          }
          //third place
-         if(time3.time<=this.times){
+         if(time3.time>=this.times){
          
-             console.log(
-             "Third Place       Name: " + time3.name + "   Time: " + time3.time + " seconds"
+             text(
+             "Third Place       Name: " + time3.name + "   Time: " + time3.time + " score",100,800
              )
-             console.log("sad u aint on the leaderBoard")
+             text("Sad you are not on the leaderboard",200,900)
              
              
            }
            else{
            
             checker = 3
-            console.log( "Third Place       Name: " + this.name + "   Time: " + this.times + " seconds")
+            text( "Third Place       Name: " + this.name + "   Time: " + this.times + " score",100,800)
             this.addplayerthird()
-          console.log("yay you get the bronze medal for being third")
+          text("Yay, you get the bronze medal for being third",200,900)
            }
          
      }
