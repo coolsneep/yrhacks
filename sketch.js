@@ -22,11 +22,12 @@ playButton.mousePressed(submitName)
 }
 function draw(){
 //begin
+text(names,600,100)
 if(gameState === 0){
     fill("black")
     background('#355070')
     text("Enter Your Name",300,200)
-
+    
     
 }
 if (gameState === 0.5){
@@ -35,6 +36,7 @@ if (gameState === 0.5){
 }
 //play
 if(gameState === 1){
+    
     if(guessed<11){
     randomCountry()
     gameState = 1.5
@@ -44,24 +46,32 @@ if(gameState === 1){
     temp2 = createButton("submit")
     temp2.position(300,100)
     temp2.mousePressed(check)
+    console.log(guessed)
       }
+    
+    else{
+        gameState = 2
     }
+}
 
 if(gameState === 1.5){
-    if(guesses<=3){
+    if(guesses<3){
+    background("black")
     
-    
+    text(value,400,400)
     text(guesses,500,500)
     console.log("waiting")
     
 }
-else{
-    gameState = 1
-    
-}
+
 //end
 }
 if(gameState === 2){
+    temp.remove()
+    temp1.remove()
+    clear()
+    
+    text("the game is finished your score is: "+score,400,400)
 }
 }
 
@@ -112,6 +122,8 @@ function check(){
         
     }
     if(guesses === 3){
+        gameState = 1
+        console.log("loss")
         guessed +=1
         guesses = 0
     }
